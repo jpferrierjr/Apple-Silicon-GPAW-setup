@@ -5,7 +5,7 @@ Ever have trouble installing GPAW on your fancy new arm-based Apple computer? Is
 Open up terminal and type
 ```
 cd ~
-curl -O https://github.com/jpferrierjr/Apple-Silicon-GPAW-setup/blob/main/MacOSX_M1_GPAW_SETUP.sh
+curl -O https://github.com/jpferrierjr/Apple-Silicon-GPAW-setup/raw/main/MacOSX_M1_GPAW_SETUP.sh
 chmod u+x MacOS_M1_GPAW_SETUP.sh
 ./MacOS_M1_GPAW_SETUP.sh
 ```
