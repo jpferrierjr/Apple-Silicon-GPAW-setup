@@ -523,7 +523,7 @@ function buildGPAWSETUPFILE()
     OPBP=`readlink -f $(brew --prefix openblas)`
 
     echo "# BLAS" >> $file
-    echo "libraries += ['libopenblas']" >> $file 
+    echo "libraries += ['openblas']" >> $file 
     echo "library_dirs += ['${OPBP}/lib']" >> $file
     echo "include_dirs += ['${OPBP}/include']" >> $file
     echo "" >> $file
@@ -532,7 +532,7 @@ function buildGPAWSETUPFILE()
     XCP=`readlink -f $(brew --prefix libxc)`
     
     echo "# LibXC" >> $file
-    echo "libraries += ['libxc']" >> $file 
+    echo "libraries += ['xc']" >> $file 
     echo "library_dirs += ['${XCP}/lib']" >> $file
     echo "include_dirs += ['${XCP}/include']" >> $file
     echo "" >> $file
@@ -541,7 +541,7 @@ function buildGPAWSETUPFILE()
     OMPIP=`readlink -f $(brew --prefix open-mpi)`
     
     echo "# Open-MPI" >> $file
-    echo "libraries += ['libmpi']" >> $file
+    echo "libraries += ['mpi']" >> $file
     echo "library_dirs += ['${OMPIP}/lib']" >> $file 
     echo "include_dirs += ['${OMPIP}/include']" >> $file
     echo "" >> $file
@@ -560,7 +560,7 @@ function buildGPAWSETUPFILE()
     
     echo "# Scalapack" >> $file
     echo "scalapack = True" >> $file
-    echo "libraries += ['libscalapack']" >> $file
+    echo "libraries += ['scalapack']" >> $file
     echo "library_dirs += ['${SCLP}/lib']" >> $file
     echo "" >> $file
 
