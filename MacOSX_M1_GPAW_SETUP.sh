@@ -352,31 +352,13 @@ function installModules()
     cd ~
 
     # Set up PIP for this environment
-    conda install pip
+    conda install pip cython pybind11 numpy pythran scipy matplotlib ase
 
-    # Install Numpy dependencies
-    pip install --no-binary :all: --no-use-pep517 cython
-    pip install pybind11
-
-    # Numpy
-    pip install --no-binary :all: --no-use-pep517 numpy
-
-
-    # Scipy
-    pip install pythran
-    pip install --no-binary :all: --no-use-pep517 scipy
-
-    # Matplotlib
-    pip install matplotlib
-
-    # ASE
-    pip install ase
-
-    # Asap3, incase anyone needs it
-    pip install asap3
+    # Asap3, incase anyone needs it ------ CAUSES IT TO CRASH! WAIT UNTIL CONDA OPTION IS AVAILABLE
+    #pip install asap3
 
     # Pytest
-    pip install pytest
+    conda install pytest
 
     # Run ASE TEST
     echo "Would you like to test the ASE install? "
@@ -390,8 +372,28 @@ function installModules()
     export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"
     export GPAW_CONFIG=~/.gpaw/siteconfig.py
 
+    # Needs to be unset due to some weird issue with GPAW
+    unset CC
+
+    # Ensure correct directory in path
+    DIR="~/.local/bin"
+
+    if [[ ":$PATH:" == *DIR* ]]; then
+        # Take action if $DIR exists. #
+        echo "Adding local bin to path"
+        export PATH=$PATH:DIR
+    fi
+
     # GPAW
-    pip install gpaw 
+    #pip install gpaw 
+    cd ~
+    mkdir gpaw_install
+    cd gpaw_install
+    git clone https://gitlab.com/gpaw/gpaw.git
+    cd gpaw
+    python3 setup.py install
+
+
 
     # Output GPAW INFO
     gpaw info
