@@ -6,7 +6,7 @@ Open up terminal and type
 ```
 cd ~
 curl -O https://raw.githubusercontent.com/jpferrierjr/Apple-Silicon-GPAW-setup/main/MacOSX_M1_GPAW_SETUP.sh
-chmod u+x MacOS_M1_GPAW_SETUP.sh
-./MacOS_M1_GPAW_SETUP.sh
+chmod u+x MacOSX_M1_GPAW_SETUP.sh
+./MacOSX_M1_GPAW_SETUP.sh
 ```
 and then follow the on screen prompts!
